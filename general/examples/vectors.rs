@@ -15,7 +15,7 @@ fn main() {
         // must assign "e" a *mutable reference* to "vec2", otherwise, "vec2"'s ownership will be moved to "e"!
         *e *= 2; // the "*" in the beginning of the variable allows you to manipulate the reference's ("vec2") values inplace
     }
-    for &e in &vec2 {
+    for e in &vec2 {
         println!("{}", e);
     }
     println!("Popped value: {:?}", vec2.pop()); // "pop()" also returns an "Option" type
