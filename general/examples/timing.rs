@@ -16,7 +16,8 @@ fn measure_time(n_loops: usize, fun: fn(u64) -> u64, n: u64) -> f64 {
 fn loop1(size: u64) -> u64 {
     let vec: Vec<u64> = (0..=size).collect();
     let mut sum = 0;
-    for v in vec { // ownership of elements in "vec" is moved into the loop
+    for v in vec {
+        // ownership of elements in "vec" is moved into the loop
         sum += v // adds values directly
     }
     sum
@@ -25,7 +26,8 @@ fn loop1(size: u64) -> u64 {
 fn loop2(size: u64) -> u64 {
     let vec: Vec<u64> = (0..=size).collect();
     let mut sum = 0;
-    for v in vec { // ownership of elements in "vec" is moved into the loop
+    for v in vec {
+        // ownership of elements in "vec" is moved into the loop
         sum += &v // adds values indirectly via references (extra step)
     }
     sum
@@ -34,7 +36,8 @@ fn loop2(size: u64) -> u64 {
 fn loop3(size: u64) -> u64 {
     let vec: Vec<u64> = (0..=size).collect();
     let mut sum = 0;
-    for &v in &vec { // dereferences the referenced vector "vec"
+    for &v in &vec {
+        // dereferences the referenced vector "vec"
         sum += v // adds values directly
     }
     sum
@@ -52,7 +55,8 @@ fn loop4(size: u64) -> u64 {
 fn loop5(size: u64) -> u64 {
     let vec: Vec<u64> = (0..=size).collect();
     let mut sum = 0;
-    for &v in vec.iter() { // "iter()" returns a reference of "vec", then values are being dereferenced
+    for &v in vec.iter() {
+        // "iter()" returns a reference of "vec", then values are being dereferenced
         sum += v // adds values directly
     }
     sum
