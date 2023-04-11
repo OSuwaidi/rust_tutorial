@@ -27,19 +27,19 @@ fn main() -> Result<()> {
     the old contents via "push_str()", then finally, insert the new values into the db
      */
     let write_result = match did_write {
-        // If "write_result" is of type variant "Ok()":
+        // If "write_result" is of type variant "Ok":
         Ok(()) => {
             println!("File successfully created");
-            1 // If we "return" here, it will stop the function early and return upon success
-        }
+            1 // if we "return" here, it will stop the function early and return upon success
+        },
 
-        // If "write_result" is type variant "Err()":
+        // If "write_result" is type variant "Err":
         Err(error) => return Err(error),
     };
 
     /*
-    *** The "match" case above, where you "match" the "Result" type to extract the result of the "Ok()" case
-    and bind to the variable "write_result", or returning the "Err()" case back from the function;
+    *** The "match" case above, where you "match" the "Result" type to extract the result of the "Ok" case
+    and bind to the variable "write_result", or returning the "Err" case back from the function;
     that can be entirely summarized with the "?" operator ***
     */
     let contents = read_to_string("mydata.db")?; // the "?" at the end means that the function on the left will contain error handling

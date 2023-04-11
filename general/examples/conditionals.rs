@@ -31,7 +31,7 @@ fn main() {
         // "match" must be *exhaustive*
         1..=30 => 3,
         31..=61 => 6,
-        99 | 100 => 100, // a single "|" is the pattern OR operator
+        99 | 100 => 100, // a single "|" is the "pattern OR" operator
         _ => 0,          // "_" implies everything else
     };
     println!("x is : {}", x);

@@ -2,7 +2,7 @@
 
 use std::io::{stdin, Error};
 
-// "Result<T, E>" is an "enum" with 2 variants: "Ok(T)" is type of successful value, and "Err(E)" is error type
+// "Result<T, E>" is an "enum" type with 2 variants: "Ok(T)" is success type with value "T", and "Err(E)" is error type with value "E"
 fn main() -> Result<(), Error> {
     let mut n = String::new(); // Variable "n" owns the data "String::new()" and its allocated memory
     stdin().read_line(&mut n)?; // Pass in a *mutable reference* to "n" for the method to ***borrow***
@@ -14,7 +14,7 @@ fn main() -> Result<(), Error> {
     let concat_text = text1 + " world"; // "concat_text" now owns "text1", hence; we can't call "text1" afterwards
     println!("{}", concat_text);
     // println!("Error: {}", text2); // error because "text1" was moved out to "concat_text" but "text2" still points to "text1" which has moved out (dangling pointer)
-    return Ok(()); // Return "Ok" variant of success type "()" --> unit value (no meaningful value to return on success)
+    return Ok(()); // Return "Ok" variant of type success with value "()" --> unit value (no meaningful value to return on success)
 }
 
 /*
