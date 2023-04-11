@@ -13,7 +13,8 @@ fn main() {
     hmap.insert("string", Value::Str("cat"));
     hmap.insert("integer", Value::Int(10));
 
-    for (_k, v) in &hmap { // we had NOT to dereference "v" because the "Value" variant doesn't implement the "Copy" trait, so we can't copy it
+    for (_k, v) in &hmap {
+        // we had NOT to dereference "v" because the "Value" variant doesn't implement the "Copy" trait, so we can't copy it
         match v {
             Value::Str(value) => println!("Value is a string: {}", value),
             Value::Int(value) => println!("Value is an int: {}", value),
@@ -21,11 +22,15 @@ fn main() {
     }
 
     // Check if "integer" key has value > 5, if so, return true, otherwise false, else return error on every other possible case:
-    println!("Get result: {:?}", check_get_value(hmap.get("integer")).unwrap());
+    println!(
+        "Get result: {:?}",
+        check_get_value(hmap.get("integer")).unwrap()
+    );
 }
 
 fn check_get_value(get_result: Option<&Value>) -> Result<bool, &'static str> {
-    return match get_result { // must use "return" before "match" to terminate function upon success/fail
+    return match get_result {
+        // must use "return" before "match" to terminate function upon success/fail
         Some(value) => {
             match value {
                 Value::Str(_string) => Err("Value is not an integer!"), // this "Err()" returns type "&'static str"
@@ -35,9 +40,9 @@ fn check_get_value(get_result: Option<&Value>) -> Result<bool, &'static str> {
                     } else {
                         Ok(false)
                     }
-                },
+                }
             }
-        },
-        None => Err("The key 'integer' doesn't exist!")
-    }
+        }
+        None => Err("The key 'integer' doesn't exist!"),
+    };
 }

@@ -31,7 +31,7 @@ fn main() -> Result<()> {
         Ok(()) => {
             println!("File successfully created");
             1 // if we "return" here, it will stop the function early and return upon success
-        },
+        }
 
         // If "write_result" is type variant "Err":
         Err(error) => return Err(error),
