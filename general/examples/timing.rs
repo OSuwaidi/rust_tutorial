@@ -73,17 +73,17 @@ fn main() {
     let number_of_loops: usize = 500;
     let vector_size: u64 = 1000000;
     let time1 = measure_time(number_of_loops, loop1, vector_size);
-    println!("Took {:?} nanoseconds for loop1", time1);
+    println!("Took {time1} nanoseconds for loop1");
 
     let time2 = measure_time(number_of_loops, loop2, vector_size);
-    println!("Took {:?} nanoseconds for loop2", time2);
+    println!("Took {time2} nanoseconds for loop2");
 
     let time3 = measure_time(number_of_loops, loop3, vector_size);
-    println!("Took {:?} nanoseconds for loop3", time3);
+    println!("Took {time3} nanoseconds for loop3");
 
     let time4 = measure_time(number_of_loops, loop4, vector_size);
-    println!("Took {:?} nanoseconds for loop4", time4);
+    println!("Took {time4} nanoseconds for loop4");
 
     let time5 = measure_time(number_of_loops, loop5, vector_size);
-    println!("Took {:?} nanoseconds for loop5", time5);
+    println!("Took {time5} nanoseconds for loop5");
 }

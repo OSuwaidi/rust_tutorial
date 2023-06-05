@@ -40,11 +40,11 @@ fn gen_rand3(n: usize) -> Vec<i8> {
 
 fn main() {
     let (time1, rands1) = measure_time(gen_rand1, 10);
-    println!("Took {:?} nanoseconds for {:?}", time1, rands1);
+    println!("Took {time1} nanoseconds for {:?}", rands1);
 
     let (time2, rands2) = measure_time(gen_rand2, 10);
-    println!("Took {:?} nanoseconds for {:?}", time2, rands2);
+    println!("Took {time2} nanoseconds for {:?}", rands2);
 
     let (time3, rands3) = measure_time(gen_rand3, 10);
-    println!("Took {:?} nanoseconds for {:?}", time3, rands3);
+    println!("Took {time3} nanoseconds for {:?}", rands3);
 }

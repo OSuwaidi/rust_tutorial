@@ -14,10 +14,10 @@ fn main() {
     hmap.insert("integer", Value::Int(10));
 
     for (_k, v) in &hmap {
-        // we had NOT to dereference "v" because the "Value" variant doesn't implement the "Copy" trait, so we can't copy it
+        // we had NOT to *de*reference "v" because the "Value" variant doesn't implement the "Copy" trait, so we can't copy it
         match v {
-            Value::Str(value) => println!("Value is a string: {}", value),
-            Value::Int(value) => println!("Value is an int: {}", value),
+            Value::Str(value) => println!("Value is a string: {value}"),
+            Value::Int(value) => println!("Value is an int: {value}"),
         }
     }
 

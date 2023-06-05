@@ -2,7 +2,7 @@
 
 use std::f32::consts::PI;
 
-// "enum" is some custom *datatype* that can be used as an argument or returned from a function/method!
+// "enum" is some custom *datatype* that can be used as an argument or returned from a function/method
 enum Shape {
     Circle(f32),         // represents "radius" argument
     Rectangle(f32, f32), // represents "width" and "height" arguments

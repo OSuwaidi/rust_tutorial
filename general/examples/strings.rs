@@ -1,20 +1,20 @@
 // بسم الله الرحمن الرحيم وبه نستعين
 
 fn main() {
-    let tup = (10, "flower", 9.8); // when creating tuples, the different datatypes must be specified
+    let tup = (10, "flower", 9.8); // when creating tuples, the different datatypes must be explicitly specified
     println!("Name: {}", tup.1);
 
     let (v1, v2, v3) = tup;
-    println!("v1: {}, v2: {}, v3: {}", v1, v2, v3);
+    println!("v1: {v1}, v2: {v2}, v3: {v3}");
 
-    let mut text = String::new();
+    let mut text = String::new(); // new instance of a *growable* string type (stored on the heap)
     text.push('A'); // "push" can append for strings too
     text.push_str(" word");
     for word in text.split_whitespace() {
-        println!("{}", word);
+        println!("{word}");
     }
     let text2 = text.replace('A', "New");
-    println!("{}", text2);
+    println!("{text2}");
 
     let text3 = String::from("a b c c c d e e f");
     let mut vec: Vec<char> = text3.chars().collect();
@@ -24,14 +24,14 @@ fn main() {
     vec.sort();
     vec.dedup(); // removes any duplicates in the string
     for &e in &vec {
-        println!("{}", e)
+        println!("{e}")
     }
     let text4 = "some string";
     let text5 = text4.to_string();
     let text6 = &text5[0..4]; // not exclusive
-    println!("String: '{}' has length: {}", text6, text6.len());
+    println!("String: '{text6}' has length: {}", text6.len());
 
     let text7 = String::from("Hello");
     let concat = text7 + " world"; // in rust, string concatenation must be of types: "String" + "%str"
-    println!("Concatenated string: {}", concat);
+    println!("Concatenated string: {concat}");
 }

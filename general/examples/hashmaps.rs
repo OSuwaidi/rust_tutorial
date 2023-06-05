@@ -16,7 +16,7 @@ fn main() {
 
     // Faster: accessing elements directly by value via dereferencing
     for (&k, &v) in &dict {
-        println!("Key: {}, Value: {}", k, v);
+        println!("Key: {k}, Value: {v}");
     }
 
     if dict.contains_key("banana") {

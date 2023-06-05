@@ -1,7 +1,7 @@
 // بسم الله الرحمن الرحيم وبه نستعين
 
 use std::env::args;
-// This is importing the "args" *struct* from the environment (env) module from the standard (std) module
+// This is importing the "args" *struct* from the environment "env" module from the standard "std" module
 use std::fs::{read_to_string, write};
 use std::io::Result;
 
@@ -13,13 +13,13 @@ fn main() -> Result<()> {
     /*
     ".skip(n)" skips "n" elements from the "args" iterator, where the first argument is the hidden path from terminal
     ".next()" retrieves the next element from the "args" iterator
-    ".unwrap()" extracts and returns the value of the argument
-    ".expect()" same as ".unwrap()" but returns an error message instead of "panic" in case of error
+    ".unwrap()" extracts the "Option" enum and returns the value of the argument
+    ".expect()" same as ".unwrap()" but returns an error message instead of "panic" in case of error/crash
     */
-    println!("The key is '{}' and the value is '{}'", key, value);
-    let contents = format!("{}\t{}\n", key, value); // the "format!" marco returns a "String" datatype
+    println!("The key is '{key}' and the value is '{value}'");
+    let contents = format!("{key}\t{value}\n"); // the "format!" marco returns a "String" datatype
 
-    // "write" creates a ".db" file, and returns a "Result<()>" *enum* (that can be unpacked/extracted)
+    // "write()" creates a ".db" file, and returns a "Result<()>" *enum* (that can be unpacked/extracted)
     let did_write = write("mydata.db", contents);
     /*
     "write()" will overwrite the file if exits. Therefore, if we wanted to only update by appending to the end of the file,
@@ -30,17 +30,18 @@ fn main() -> Result<()> {
         // If "write_result" is of type variant "Ok":
         Ok(()) => {
             println!("File successfully created");
-            1 // if we "return" here, it will stop the function early and return upon success
+            1 // if we "return" here, it will stop the entire function early and return upon success
         }
 
         // If "write_result" is type variant "Err":
-        Err(error) => return Err(error),
+        Err(error) => return Err(error), // grad the error and display it
     };
-
+    println!("write_result: {write_result}");
     /*
-    *** The "match" case above, where you "match" the "Result" type to extract the result of the "Ok" case
-    and bind to the variable "write_result", or returning the "Err" case back from the function;
-    that can be entirely summarized with the "?" operator ***
+    *** The "match" case above, where you "match" the "Result" type to extract the result value of the
+    "Ok" case and bind to the variable "write_result", or returning the "Err" case back from the function;
+    that can be entirely summarized with the "?" operator. Hence, we can replace that entire block
+    with: "let did_write = write("mydata.db", contents)?;" ***
     */
     let contents = read_to_string("mydata.db")?; // the "?" at the end means that the function on the left will contain error handling
     for line in contents.lines() {

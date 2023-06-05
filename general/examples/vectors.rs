@@ -16,7 +16,7 @@ fn main() {
         *e *= 2; // the "*" in the beginning of the variable allows you to manipulate the reference's ("vec2") values inplace
     }
     for &e in &vec2 {
-        println!("{}", e);
+        println!("{e}");
     }
     println!("Popped value: {:?}", vec2.pop()); // "pop()" also returns an "Option" type
     println!(

@@ -4,7 +4,7 @@ use rand::{thread_rng, Rng};
 
 fn main() {
     let password = gen_pass(15);
-    println!("Password is: {:?}", password);
+    println!("Password is: {password}");
 }
 
 fn gen_pass(n: usize) -> String {

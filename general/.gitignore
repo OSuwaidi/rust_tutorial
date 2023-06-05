@@ -1,6 +1,10 @@
+# Ignore Rust build directory
 /target
-src/
 benches/
+src/
 target/
 test*
 .DS_Store
+Cargo.lock
+*.db
+.idea

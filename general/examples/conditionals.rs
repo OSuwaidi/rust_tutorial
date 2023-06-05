@@ -6,7 +6,7 @@ use std::cmp::Ordering;
 fn main() {
     let rand_bool: bool = random(); // must specify datatype to generate random var accordingly
     let rand_num = thread_rng().gen_range(1..=100); // generate a random number between 1 and 100
-    println!("Rand bool: {}, Rand num: {}", rand_bool, rand_num);
+    println!("Rand bool: {rand_bool}, Rand num: {rand_num}");
 
     if rand_bool || (rand_num > 50) {
         println!("One of them is true?")
@@ -25,7 +25,7 @@ fn main() {
     } else {
         0 // if you put a  ";" at the end of a returned value WITHOUT the "return" keyword, it will return unit value "()" instead of the actual value
     };
-    println!("var is: {}", var);
+    println!("var is: {var}");
 
     let x = match rand_num {
         // "match" must be *exhaustive*
@@ -34,7 +34,7 @@ fn main() {
         99 | 100 => 100, // a single "|" is the "pattern OR" operator
         _ => 0,          // "_" implies everything else
     };
-    println!("x is : {}", x);
+    println!("x is : {x}");
 
     let x = 18;
     let y = 10;

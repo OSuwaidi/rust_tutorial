@@ -27,7 +27,7 @@ fn main() {
     }
 
     for val in arr {
-        println!("val2: {}", val);
+        println!("val2: {val}");
     }
 
     for i in 0..arr.len() {
